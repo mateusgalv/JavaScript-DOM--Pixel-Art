@@ -1,6 +1,8 @@
 const grid = document.getElementById('grid-container');
 const colorPicker = document.getElementById('color-selector-container');
 const randomButton = document.getElementById('random-color-button');
+const setSizeBtn = document.getElementById('set-size-button');
+const resetBtn = document.getElementById('reset-button');
 
 const randomColor = () => {
     const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
@@ -16,7 +18,7 @@ const generateInitialColors = () => {
     }
 };
 
-const removeInitialColors = () => {
+const removeCurrentColors = () => {
     for(let i = 0; i < 5; i++) {
         colorPicker.removeChild(colorPicker.lastChild);
     }
@@ -36,9 +38,28 @@ const generateGrid = (size = 5) => {
     }
 };
 
+const removeCurrentGrid = () => {
+    while(grid.children.length > 0) {
+        grid.removeChild(grid.lastChild);
+    }
+}
+
 randomButton.addEventListener('click', () => {
-    removeInitialColors();
+    removeCurrentColors();
     generateInitialColors()
+});
+
+setSizeBtn.addEventListener('click', () => {
+    const gridSize = document.getElementById('grid-size');
+    const size = gridSize.value;
+    
+    removeCurrentGrid();
+    generateGrid(size);
+});
+
+resetBtn.addEventListener('click',() => {
+    removeCurrentGrid();
+    generateGrid();
 });
 
 window.onload = () => {
