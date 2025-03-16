@@ -7,22 +7,38 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Pixel Art</h1>
-    </header>
-    <div>x</div>
-    <nav>
-        <h2>Seleção de cores</h2>
-        <div id="color-selector-container" class="color-selector-container"></div>
-        <button id="random-color-button">Aleatório</button>
-    </nav>
-    <div>x</div>
-    <main>
-        <input type="number" id="grid-size" min="1" max="24" value="5">
-        <button id="set-size-button">Set</button>
-        <div id="grid-container"></div>
-    </main>
-    <button id="reset-button">Reset</button>
-    <script src="main.js"></script>
+    <div class="main-container">
+        <header>
+            <h1 class="title"><u>Pixel Art</u></h1>
+        </header>
+        <nav>
+            <div class="selector">
+                <h2 class="title">Select your color</h2>
+                <div id="color-selector-container" class="color-selector-container">
+                    <!-- Element with color display, selection indicator and lock option -->
+                </div>
+                <button id="random-color-button">Generate random colors</button>
+                <div id="fixed-colors-container">
+                    <div id="default-black" class="color-card selected default-black" style="background-color: black;"></div>
+                    <div class="color-card" style="background-color: red;"></div>
+                    <div class="color-card" style="background-color: green;"></div>
+                    <div class="color-card" style="background-color: blue;"></div>
+                    <div class="color-card" style="background-color: yellow;"></div>
+                    <div class="color-card" style="background-color: white;"></div>
+                </div>
+            </div>
+            <div class="options-container">
+                <input type="number" id="grid-size" min="15" max="40" value="15">
+                <button id="set-size-button" class="btn">Set</button>
+                <button id="reset-button" class="btn">Reset</button>
+            </div>
+        </nav>
+        <main>
+            <div id="grid-container">
+                <!-- Grid elements -->
+            </div>
+        </main>
+        <script src="main.js"></script>
+    </div>
 </body>
 </html>
