@@ -2,13 +2,14 @@
 
 ## Sobre o Projeto
 
-O **Pixel Art** é uma aplicação web interativa que permite aos usuários criar desenhos pixelados em uma grade customizável. O usuário pode escolher cores e pintar pixels. O projeto foi desenvolvido com foco em fornecer uma experiência simples e divertida, ao mesmo tempo em que explora conceitos importantes de manipulação da árvore de elementos (DOM) e armazenamento local (Web Storage).
+O **Pixel Art** é uma **aplicação web interativa** que permite ao usuário criar desenhos pixelados em uma grade customizável. O usuário pode escolher entre cores fixas e aleatórias para colorir e **salvar** a grade atual.
+
+O projeto foi desenvolvido com foco em fornecer uma experiência simples e divertida, ao mesmo tempo em que explora conceitos importantes de manipulação da árvore de elementos (DOM) e armazenamento local (Web Storage).
 
 ### Funcionalidades Principais:
-- **Grade de Pixels**: Uma grade interativa e customizável onde o usuário pode pintar pixels.
+- **Grade de Pixels**: Uma grade interativa e customizável onde o usuário pode pintar pixels, definir seu tamanho e carregar artes salvas.
 - **Seleção de Cores**: Um seletor de cores para escolher a cor desejada entre cores geradas aleatoriamente e cores fixas.
-- [EM DESENVOLVIMENTO] **Salvar e Recuperar Desenhos**: Utilização do **WebStorage** para salvar e carregar desenhos.
-- [EM DESENVOLVIMENTO] **Responsividade**: Design adaptável para diferentes tamanhos de tela.
+- **Salvar e Recuperar Desenhos**: Utilização do **WebStorage** para salvar e carregar desenhos.
 
 ---
 
@@ -21,7 +22,7 @@ O DOM foi amplamente utilizado para manipular dinamicamente os elementos da pág
 - **Atualização de estilos**: As cores dos pixels são alteradas dinamicamente com base na interação do usuário.
 
 #### 2. **Web Storage**
-O **Web Storage**, mais especificamente o **sessionStorage**, foi utilizado para armazenamento da seleção atual de cor do usuário. O sessionStorage é uma API do navegador que permite armazenar dados localmente (no cliente) de forma temporária, enquanto o navegador não for fechado.
+O **Web Storage**, mais especificamente o **sessionStorage** e o **localStorage**, foram utilizados para armazenamento da seleção atual de cor do usuário e arte criada. Tratam-se de uma API do navegador que permite armazenar dados localmente (no cliente) de forma temporária.
 
 ---
 
@@ -35,53 +36,39 @@ O **Web Storage**, mais especificamente o **sessionStorage**, foi utilizado para
     Navegue até a pasta do projeto:
     ```bash
         cd JavaScript-DOM--Pixel-Art
-    
+    ```
     Abra o arquivo index.html no seu navegador.
 
 3. **Comece a criar**:
     - Escolha uma cor no seletor de cores.
     - Clique nos pixels da grade para pintá-los.
-    - Seu desenho será automaticamente salvo no LocalStorage.
+
+4. **Funcionalidades**:
+    - Novas cores serão geradas ao ser clicado "Generate random colors".
+    - As cores abaixo deste botão são fixas
+    - Um novo tamanho de grade será definido ao clicar em "Set"
+    - A grade será limpa ao clicar em Reset
+    - Seu desenho será salvo no LocalStorage ao clicar em Save.
+    - Seu desenho será carregado ao clicar em Load
+    - Os arquivos locais serão removidos ao selecionar "Clear Stored Data" 
+
+---
 
 ## Estrutura do Projeto
 pixel-art/
 │
-├── index.html          # Arquivo principal HTML
-├── styles.css          # Estilos CSS
-├── script.js           # Lógica JavaScript
-├── README.md           # Este arquivo
-└── assets/             # Pasta para imagens ou outros recursos
+├── index.html          # Arquivo principal HTML  
+├── styles.css          # Estilos CSS  
+├── script.js           # Lógica JavaScript  
+├── README.md           # Este arquivo  
+└── assets/             # Pasta para imagens ou outros recursos  
 
-Exemplo de Uso
-
-    Criando um Desenho:
-
-        Escolha uma cor no seletor de cores.
-
-        Clique nos pixels da grade para pintá-los.
-
-    Salvando e Recuperando:
-
-        O desenho é salvo automaticamente no LocalStorage.
-
-        Ao recarregar a página, o desenho salvo será carregado automaticamente.
-
-    Resetando a Grade:
-
-        Use o botão "Limpar Grade" para apagar o desenho atual e começar uma nova criação.
-
-Captura de Tela
+## Captura de Tela
 
 <img src="./assets/pixel-heart.jpg"></img>
 
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
-🙌 Contribuições
+## Contatos
 
-Contribuições são bem-vindas! Se você tiver sugestões ou encontrar problemas, sinta-se à vontade para abrir uma issue ou enviar um pull request.
-🌐 Contato
-
-    GitHub: seu-usuario
-
-    LinkedIn: Seu Nome
-
-    E-mail: seu-email@example.com
+    GitHub: /mateusgalv
+    LinkedIn: /mateus-galvao
+    E-mail: mateustgalvao@gmail.com
