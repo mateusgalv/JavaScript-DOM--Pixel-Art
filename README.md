@@ -55,13 +55,14 @@ O **Web Storage**, mais especificamente o **sessionStorage** e o **localStorage*
 ---
 
 ## Estrutura do Projeto
-pixel-art/
+pixel-art/  
 │
-├── index.html          # Arquivo principal HTML  
-├── styles.css          # Estilos CSS  
-├── script.js           # Lógica JavaScript  
-├── README.md           # Este arquivo  
-└── assets/             # Pasta para imagens ou outros recursos  
+├── index.html  
+├── styles.css  
+├── script.js  
+├── README.md  
+└── assets/
+    └── pixel-heart.jpg     
 
 ## Captura de Tela
 
