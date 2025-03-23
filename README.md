@@ -61,7 +61,7 @@ pixel-art/
 ├── styles.css  
 ├── script.js  
 ├── README.md  
-└── assets/
+└── assets/  
     └── pixel-heart.jpg     
 
 ## Captura de Tela
