@@ -56,10 +56,10 @@ O **Web Storage**, mais especificamente o **sessionStorage** e o **localStorage*
 
 ## Estrutura do Projeto
 pixel-art/  
-│
+│  
 ├── index.html  
-├── styles.css  
 ├── script.js  
+├── styles.css  
 ├── README.md  
 └── assets/  
     └── pixel-heart.jpg     
