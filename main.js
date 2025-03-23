@@ -9,6 +9,8 @@ const randomButton = document.getElementById('random-color-button');
 const setSizeBtn = document.getElementById('set-size-button');
 const resetBtn = document.getElementById('reset-button');
 const saveBtn = document.getElementById('save-button');
+const loadBtn = document.getElementById('load-button');
+const clearBtn = document.getElementById('clear-button');
 const inputColor = document.getElementById('manual-color');
 const blackCard = document.getElementById('default-black');
 const gridSize = document.getElementById('grid-size');
@@ -87,11 +89,34 @@ const generateGrid = (size = MIN_GRID_SIZE) => {
         }
         grid.appendChild(rowContainer);
     }
+    sessionStorage.setItem('currentGridSize', size);
 };
 
 const removeCurrentGrid = () => {
     while(grid.children.length > 0) {
         grid.removeChild(grid.lastChild);
+    }
+};
+
+const loadGrid = () => {
+    const gridData = JSON.parse(localStorage.getItem('savedGrid'));
+    const gridSize = localStorage.getItem('gridSize');
+
+    if(gridData === null) {
+        console.log("No saved grid found");
+        window.alert("No saved grid found");
+        generateGrid();
+        return;
+    }
+
+    generateGrid(gridSize);
+    const actualGrid = grid.children;
+
+    for(let i = 0; i < actualGrid.length; i++) {
+        for(let j = 0; j < actualGrid.length; j++) {
+            const cell = actualGrid[i].children[j];
+            cell.style.backgroundColor = gridData[i * gridSize + j];
+        }
     }
 };
 
@@ -109,8 +134,20 @@ randomButton.addEventListener('click', () => {
 
 saveBtn.addEventListener('click', () => {
     const actualGrid = grid.children;
-
-    console.log(actualGrid);
+    const gridData = [];
+    for(let i = 0; i < actualGrid.length; i++) {
+        const row = actualGrid[i];
+        for(let j = 0; j < row.children.length; j++) {
+            const cell = row.children[j];
+            if(cell.style.backgroundColor === '') {
+                gridData.push('rgb(255, 255, 255)');
+            } else {
+                gridData.push(cell.style.backgroundColor);
+            }
+        }
+    }
+    localStorage.setItem('savedGrid', JSON.stringify(gridData));
+    localStorage.setItem('gridSize', sessionStorage.getItem('currentGridSize'));
 });
 
 setSizeBtn.addEventListener('click', () => {
@@ -131,13 +168,18 @@ resetBtn.addEventListener('click', () => {
     gridSize.value = MIN_GRID_SIZE;
 });
 
-window.onload = () => {
-    // first load // fresh reload
-    if (sessionStorage.getItem('pixelArt') === null) {
-        generateColors();
-        generateGrid();
-        setToDefaultColor();
-    } else {
+loadBtn.addEventListener('click', () => {
+    const gridData = JSON.parse(localStorage.getItem('savedGrid'));
+    removeCurrentGrid();
+    loadGrid();
+});
 
-    }
+clearBtn.addEventListener('click', () => {
+    localStorage.clear();
+});
+
+window.onload = () => {
+    generateColors();
+    generateGrid();
+    setToDefaultColor();
 };
